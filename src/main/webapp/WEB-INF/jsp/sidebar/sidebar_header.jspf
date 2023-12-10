@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/form2js@1.0.0/src/form2js.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		<link href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css" rel="stylesheet">
+		<script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.5/pdfmake.min.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.5/vfs_fonts.min.js" type="text/javascript"></script>
+		<style>
+			body {
+				margin: 0;
+				font-family: 'Poppins', sans-serif;
+			}
+			.lg-sidebar-open-width {
+				width: 250px;
+			}
+			.lg-sidebar-close-width {
+				width: 50px;
+			}
+			.lg-content-open-width {
+				margin-left: 250px;
+			}
+			.lg-content-close-width {
+				margin-left: 50px;
+			}
+			.sm-sidebar-open-width {
+				width: 100%;
+			}
+			.sm-sidebar-close-width {
+				width: 50px;
+			}
+			.sm-content-open-width {
+				margin-left: 0px;
+			}
+			.sm-content-close-width {
+				margin-left: 50px;
+			}
+			/* .sidebar-container {
+				height: 100%;
+				position: fixed;
+				background: #20002c;
+				background: -webkit-linear-gradient(to top, #cbb4d4, #20002c);
+				background: linear-gradient(to top, #cbb4d4, #20002c);
+			}
+			.sidebar {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.2);
+			}
+			.sidebar div {
+				display: block;
+				margin-bottom: 50px;
+			}
+			.sidebar div button {
+				font-size: 0.8em;
+				text-decoration: none;
+				color: #ffffff;
+				background-color: rgba(255, 255, 255, 0.1);
+				padding: 10px;
+				margin-left: 6px;
+				margin-top: 6px;
+				border-radius: 5px;
+				border: none;
+			}
+			.sidebar a {
+				font-size: 0.8em;
+				text-decoration: none;
+				color: #ffffff;
+				background-color: rgba(255, 255, 255, 0.1);
+				margin: 6px;
+				padding: 10px;
+				border-radius: 5px;
+			}
+			.sidebar a:not(.sidebar :nth-child(1)) {
+				display: block;
+			}
+			.sidebar a.active {
+				background-color: rgba(0, 0, 0, 0.4);
+			} */
+			.sidebar-container {
+			    height: 100%;
+			    position: fixed;
+			    background: #0066cc; /* Change to your desired shade of blue */
+			}
+			
+			.sidebar {
+			    position: absolute;
+			    width: 100%;
+			    height: 100%;
+			    background-color: rgba(0, 0, 0, 0.2);
+			}
+			
+			.sidebar div {
+			    display: block;
+			    margin-bottom: 50px;
+			}
+			
+			.sidebar div button {
+			    font-size: 0.8em;
+			    text-decoration: none;
+			    color: #ffffff;
+			    background-color: rgba(255, 255, 255, 0.1);
+			    padding: 10px;
+			    margin-left: 6px;
+			    margin-top: 6px;
+			    border-radius: 5px;
+			    border: none;
+			}
+			
+			.sidebar a {
+			    font-size: 0.8em;
+			    text-decoration: none;
+			    color: #ffffff;
+			    background-color: rgba(255, 255, 255, 0.1);
+			    margin: 6px;
+			    padding: 10px;
+			    border-radius: 5px;
+			}
+			
+			.sidebar a:not(.sidebar :nth-child(1)) {
+			    display: block;
+			}
+			
+			.sidebar a.active {
+			    background-color: rgba(0, 0, 0, 0.4);
+			}
+			
+			.sidebar a:hover:not(.active) {
+			    background-color: rgba(255, 255, 255, 0.2);
+			}
+			
+			.sidebar a:hover:not(.active) {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+			.sidebar a img {
+				margin-top: -2px;
+			}
+			table {
+				border-top: solid 1px #ced4da;
+				border-left: solid 1px #ced4da;
+				border-right: solid 1px #ced4da;
+				font-size: 0.8em;
+			}
+			table#normalTable {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			table#normalTable th, table#normalTable td {
+				border: 1px solid #ced4da;
+				padding: 5px;
+			}
+			table#normalTable th {
+				background-color: transparent;
+				text-align: center;
+			}
+			
+			table.normalTable {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			table.normalTable th, table.normalTable td {
+				border: 1px solid #ced4da;
+				padding: 5px;
+			}
+			table.normalTable th {
+				background-color: transparent;
+				text-align: center;
+			}
+			
+			tr {
+				vertical-align: middle;
+			}
+			textarea {
+				resize: none
+			}
+			.form-label {
+				font-size: 0.8em !important;
+				color: grey !important;
+				margin-bottom: 0px !important;
+			}
+			input[type="search"]::-webkit-search-decoration,
+			input[type="search"]::-webkit-search-cancel-button,
+			input[type="search"]::-webkit-search-results-button,
+			input[type="search"]::-webkit-search-results-decoration {
+				-webkit-appearance:none;
+			}
+		</style>
+		<script>
+			$(function () {
+				if (!sessionStorage.getItem("login_id")) {
+					window.location.href='/';
+				} else {
+					if ($(window).width() > 499) {
+						$('.sidebar-container').addClass('lg-sidebar-open-width');
+						$('.content').addClass('lg-content-open-width');
+						$('#sidebar_btn_icon').attr('src', '/icon/close-line.png');
+					} else {
+						$('.sidebar-container').addClass('sm-sidebar-close-width');
+						$('.content').addClass('sm-content-close-width');
+						$('.sidebar a span').hide();
+						$('#sidebar_btn_icon').attr('src', '/icon/menu-line.png');
+					}
+					
+					onWindowLoad();
+					let currentUrl = window.location.href;
+					let currentPath = currentUrl.replace('http://localhost:8080', '');
+	
+					$('.sidebar a').each(function() {
+						if ($(this).attr('href') === currentPath) {
+							$(this).addClass("active");
+						}
+					});
+					
+					switch(sessionStorage.getItem('login_type')) {
+						case 'TEACHER':
+							$('a.teacher-menu').each(function () {
+								$(this).removeClass('d-none');
+							});
+						break;
+						case 'EVALUATOR':
+							$('a.evaluator-menu').each(function () {
+								$(this).removeClass('d-none');
+							});
+						break;
+						case 'STUDENT':
+							$('a.student-menu').each(function () {
+								$(this).removeClass('d-none');
+							});
+						break;
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="sidebar-container">
+			<div class="sidebar">
+				<div>
+					<button id="sidebar_btn">
+						<img id="sidebar_btn_icon">
+					</button>
+				</div>
+				<a class="teacher-menu d-none" href="/user/teacher/view">
+					<img class="me-2" src="/icon/book-line.png">
+					<span>Teacher</span>
+				</a>
+				<a class="teacher-menu d-none" href="/user/student/view">
+					<img class="me-2" src="/icon/graduation-cap-line.png">
+					<span>Student</span>
+				</a>
+				<a class="teacher-menu d-none" href="/user/evaluator/view">
+					<img class="me-2" src="/icon/file-edit-line.png">
+					<span>Evaluator</span>
+				</a>
+				<a class="teacher-menu d-none" href="/core/badge/view">
+					<img class="me-2" src="/icon/bookmark-line.png"> 
+					<span>Badge</span>
+				</a>
+				<a class="teacher-menu d-none" href="/core/assessment/view">
+					<img class="me-2" src="/icon/presentation-line.png"> 
+					<span>Assessment</span>
+				</a>
+				<a class="teacher-menu d-none" href="/core/student/badge/approval">
+					<img class="me-2" src="/icon/badge-line.png"> 
+					<span>Badge Approval</span>
+				</a>
+				<a class="teacher-menu d-none" href="/common/membership/view">
+					<img class="me-2" src="/icon/bank-card-line.png"> 
+					<span>Membership</span>
+				</a>
+				<a class="teacher-menu d-none" href="/core/result/view">
+					<img class="me-2" src="/icon/file-chart-line.png"> 
+					<span>Result</span>
+				</a>
+				<a class="teacher-menu d-none" href="/core/report/view">
+					<img class="me-2" src="/icon/clipboard-line.png"> 
+					<span>Report</span>
+				</a>
+				<a class="student-menu d-none" href="/common/membership/view">
+					<img class="me-2" src="/icon/bank-card-line.png"> 
+					<span>Membership</span>
+				</a>
+				<a class="student-menu d-none" href="/core/student/badge/submission">
+					<img class="me-2" src="/icon/file-add-line.png"> 
+					<span>Badge Submission</span>
+				</a>
+				<a class="student-menu d-none" href="/core/student/assessment/application">
+					<img class="me-2" src="/icon/mail-add-line.png"> 
+					<span>Application</span>
+				</a>
+				<a class="evaluator-menu d-none" href="/core/student/assessment/evaluation">
+					<img class="me-2" src="/icon/inbox-line.png"> 
+					<span>Evaluation</span>
+				</a>
+				<!--
+				<a href="">
+					<img class="me-2" src="/icon/file-info-line.png"> 
+					<span>Information</span>
+				</a>
+				-->
+			</div>
+		</div>
+		<script>
+			function checkFormValidity(formId) {
+				let formValidityStatus = true;
+				
+				$("form#" + formId + " :input").each(function(){
+					if ($(this).is("input") || $(this).is("textarea") || $(this).is("select")) {
+						if ($(this).prop('required') && !$(this).val()) {
+							formValidityStatus = false;
+							$(this).addClass('is-invalid');
+							$(this).next().removeClass('d-none');
+						} else if ($(this).prop('required') && $(this).val()) {
+							$(this).removeClass('is-invalid');
+							$(this).next().addClass('d-none');
+						}
+					}
+				});
+				
+				return formValidityStatus;
+			}
+			
+			function setForm(formId, formObject) {
+				$("form#" + formId + " :input").each(function(){
+					if ($(this).is("input")) {
+						if ($(this).attr('type') !== 'file') {
+							if ($(this).attr('type') === 'date') {
+								if (formObject[$(this).attr("name")]) {
+						    		let jsDateTime = new Date(formObject[$(this).attr("name")]);
+						    		let jsDateTimeOffset = new Date(jsDateTime.setMinutes(jsDateTime.getMinutes() - jsDateTime.getTimezoneOffset()));
+						    		let birthDate = jsDateTimeOffset.toISOString().split('T')[0];
+									$(this).val(birthDate);
+						    	}
+							} else {
+								$(this).val(formObject[$(this).attr("name")]);
+							}
+						}
+					} else if ($(this).is("textarea") || $(this).is("select")) {
+						$(this).val(formObject[$(this).attr("name")]);
+					}
+				});
+			}
+			
+			function resetForm(formId) {
+				$("form#" + formId + " :input").each(function(){
+					if ($(this).is("input") || $(this).is("textarea") || $(this).is("select")) {
+						$(this).val('');
+						if ($(this).prop('required')) {
+							$(this).removeClass('is-invalid');
+							$(this).next().addClass('d-none');
+						}
+					}
+				});
+			}
+			
+			function disableForm(formId) {
+				$("form#" + formId + " :input").each(function(){
+					if ($(this).is("input") || $(this).is("textarea") || $(this).is("select")) {
+						$(this).prop("disabled", true);
+					}
+				});
+			}
+			
+			function enableForm(formId) {
+				$("form#" + formId + " :input").each(function(){
+					if ($(this).is("input") || $(this).is("textarea") || $(this).is("select")) {
+						$(this).prop("disabled", false);
+					}
+				});
+			}
+			
+			function onLogout() {
+				sessionStorage.clear();
+				window.location.href='/';
+			}
+			
+			function setInputUppercase(event) {
+				event.target.value = event.target.value.toUpperCase();
+			}
+			
+			function sortByKey(array, key) {
+				return array.sort(function(a, b) {
+					let x = a[key];
+					let y = b[key];
+					return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+				});
+			}
+			
+			function getUniqueValueFromObjectArrayByKey(array, key) {
+				return [...new Set(array.map(item => item[key]))];
+			}
+			
+			function onGetLogbook(studentBadgeId) {
+				$.ajax({
+					type: "GET",
+			        url: "/core/files/" + studentBadgeId,
+			        complete: function(data) {
+			        	let arrrayBuffer = base64ToArrayBuffer(data.responseText);
+			        	let blob = new Blob([arrrayBuffer], {type: "application/pdf"});
+			        	let link = window.URL.createObjectURL(blob);
+			        	window.open(link,'', 'height=650,width=840');
+			        }
+			    });
+			}
+			
+			function onGetReceipt(membershipId) {
+				$.ajax({
+					type: "GET",
+			        url: "/common/files/" + membershipId,
+			        complete: function(data) {
+			        	let arrrayBuffer = base64ToArrayBuffer(data.responseText);
+			        	let blob = new Blob([arrrayBuffer], {type: "application/pdf"});
+			        	let link = window.URL.createObjectURL(blob);
+			        	window.open(link,'', 'height=650,width=840');
+			        }
+			    });
+			}
+			
+			function base64ToArrayBuffer(base64) {
+        	    let binaryString = window.atob(base64);
+        	    let binaryLength = binaryString.length;
+        	    let bytes = new Uint8Array(binaryLength);
+        	    
+        	    for (var i = 0; i < binaryLength; i++) {
+        	        var ascii = binaryString.charCodeAt(i);
+        	        bytes[i] = ascii;
+        	    }
+        	    
+        	    return bytes;
+        	}
+		</script>

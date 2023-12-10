@@ -1,0 +1,48 @@
+<form id="guardianForm" novalidate>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item p-1">
+			<div id="guardianSuccess" class="d-none alert alert-success alert-dismissible fade" role="alert">
+				<strong>Success!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div id="guardianError" class="d-none alert alert-danger alert-dismissible fade" role="alert">
+				<strong>Error!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<input class="d-none" type="text" id="guardianId" name="guardianId" />
+						<input class="d-none" type="text" id="studentId_guardian" name="studentId" />
+						<label for="guardianName" class="form-label">Full name</label>
+						<input onkeyup="setInputUppercase(event)" type="text" class="form-control form-control-sm" id="guardianName" name="guardianName" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide name.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="guardianPhoneNo" class="form-label">Phone number</label>
+						<input type="text" class="form-control form-control-sm" id="guardianPhoneNo" name="guardianPhoneNo" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide phone number.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<label for="guardianConnection" class="form-label">Connection</label>
+						<input onkeyup="setInputUppercase(event)" type="text" class="form-control form-control-sm" id="guardianConnection" name="guardianConnection" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide connection.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12"></div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item p-1 modal-footer">
+			<button onclick="onGetGuardian()" type="button" class="btn btn-sm btn-warning me-1" data-bs-dismiss="modal">Reset</button>
+			<button type="submit" class="btn btn-sm btn-success">Submit</button>
+		</li>
+	</ul>
+</form>

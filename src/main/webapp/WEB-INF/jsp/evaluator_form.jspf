@@ -1,0 +1,53 @@
+<form id="evaluatorForm" novalidate>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item p-1">
+			<div id="evaluatorSuccess" class="d-none alert alert-success alert-dismissible fade" role="alert">
+				<strong>Success!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div id="evaluatorError" class="d-none alert alert-danger alert-dismissible fade" role="alert">
+				<strong>Error!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<input class="d-none" type="text" id="evaluatorId" name="evaluatorId" />
+						<label for="evaluatorEmail" class="form-label">Email</label>
+						<input type="text" class="form-control form-control-sm" id="evaluatorEmail" name="evaluatorEmail" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide email address.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="evaluatorPassword" class="form-label">Password</label>
+						<input type="text" class="form-control form-control-sm" id="evaluatorPassword" name="evaluatorPassword" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide phone number.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<label for="evaluatorName" class="form-label">Full name</label>
+						<input onkeyup="setInputUppercase(event)" type="text" class="form-control form-control-sm" id="evaluatorName" name="evaluatorName" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide full name.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="evaluatorPosition" class="form-label">Position</label>
+						<input onkeyup="setInputUppercase(event)" type="text" class="form-control form-control-sm" id="evaluatorPosition" name="evaluatorPosition" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide position.
+				     	</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item p-1 modal-footer">
+			<button onclick="onGetEvaluator()" type="button" class="btn btn-sm btn-warning me-1" data-bs-dismiss="modal">Reset</button>
+			<button type="submit" class="btn btn-sm btn-success">Submit</button>
+		</li>
+	</ul>
+</form>

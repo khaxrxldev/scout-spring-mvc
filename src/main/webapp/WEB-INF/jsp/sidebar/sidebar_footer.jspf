@@ -1,0 +1,35 @@
+		<script>
+			$('#sidebar_btn').click(function() {
+				let sidebarContainer = $('.sidebar-container');
+				let content = $('.content');
+				let sidebarBtnIcon = $('#sidebar_btn_icon');
+				
+				if ($(window).width() > 499) {
+					if (sidebarContainer.hasClass('lg-sidebar-open-width')) {
+						sidebarBtnIcon.attr('src', '/icon/menu-line.png');
+						sidebarContainer.toggleClass('lg-sidebar-open-width lg-sidebar-close-width');
+						content.toggleClass('lg-content-open-width lg-content-close-width');
+						$('.sidebar a span').hide();
+					} else if (sidebarContainer.hasClass('lg-sidebar-close-width')) {
+						sidebarBtnIcon.attr('src', '/icon/close-line.png');
+						sidebarContainer.toggleClass('lg-sidebar-close-width lg-sidebar-open-width');
+						content.toggleClass('lg-content-close-width lg-content-open-width');
+						$('.sidebar a span').show();
+					}
+				} else {
+					if (sidebarContainer.hasClass('sm-sidebar-open-width')) {
+						sidebarBtnIcon.attr('src', '/icon/menu-line.png');
+						sidebarContainer.toggleClass('sm-sidebar-open-width sm-sidebar-close-width');
+						content.toggleClass('sm-content-open-width sm-content-close-width');
+						$('.sidebar a span').hide();
+					} else if (sidebarContainer.hasClass('sm-sidebar-close-width')) {
+						sidebarBtnIcon.attr('src', '/icon/close-line.png');
+						sidebarContainer.toggleClass('sm-sidebar-close-width sm-sidebar-open-width');
+						content.toggleClass('sm-content-close-width sm-content-open-width');
+						$('.sidebar a span').show();
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<form id="teacherForm" novalidate>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item p-1">
+			<div id="teacherSuccess" class="d-none alert alert-success alert-dismissible fade" role="alert">
+				<strong>Success!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div id="teacherError" class="d-none alert alert-danger alert-dismissible fade" role="alert">
+				<strong>Error!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<input class="d-none" type="text" id="teacherId" name="teacherId" />
+						<label for="teacherEmail" class="form-label">Email</label>
+						<input type="text" class="form-control form-control-sm" id="teacherEmail" name="teacherEmail" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide email address.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="teacherPhoneNo" class="form-label">Phone number</label>
+						<input type="text" class="form-control form-control-sm" id="teacherPhoneNo" name="teacherPhoneNo" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide phone number.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<label for="teacherName" class="form-label">Full name</label>
+						<input onkeyup="setInputUppercase(event)" type="text" class="form-control form-control-sm" id="teacherName" name="teacherName" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide full name.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="teacherPassword" class="form-label">Password</label>
+						<input type="text" class="form-control form-control-sm" id="teacherPassword" name="teacherPassword" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide password.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-12">
+						<label for="teacherAddress" class="form-label">Address</label>
+						<textarea onkeyup="setInputUppercase(event)" class="form-control" rows="3" id="teacherAddress" name="teacherAddress" required></textarea>
+						<div class="d-none invalid-feedback">
+				        	Please provide address.
+				     	</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item p-1 modal-footer">
+			<button onclick="onGetTeacher()" type="button" class="btn btn-sm btn-warning me-1">Reset</button>
+			<button type="submit" class="btn btn-sm btn-success">Submit</button>
+		</li>
+	</ul>
+</form>

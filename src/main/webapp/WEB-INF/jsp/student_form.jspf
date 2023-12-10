@@ -1,0 +1,125 @@
+<form id="studentForm" novalidate>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item p-1">
+			<div id="studentSuccess" class="d-none alert alert-success alert-dismissible fade" role="alert">
+				<strong>Success!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div id="studentError" class="d-none alert alert-danger alert-dismissible fade" role="alert">
+				<strong>Error!</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<input class="d-none" type="text" id="studentId" name="studentId" />
+						<label for="studentEmail" class="form-label">Email</label>
+						<input type="text" class="form-control form-control-sm" id="studentEmail" name="studentEmail" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide email address.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="studentPhoneNo" class="form-label">Phone number</label>
+						<input type="text" class="form-control form-control-sm" id="studentPhoneNo" name="studentPhoneNo" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide phone number.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<label for="studentName" class="form-label">Full name</label>
+						<input onkeyup="setInputUppercase(event)" type="text" class="form-control form-control-sm" id="studentName" name="studentName" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide full name.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="studentPassword" class="form-label">Password</label>
+						<input type="text" class="form-control form-control-sm" id="studentPassword" name="studentPassword" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide password.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-12">
+						<label for="studentAddress" class="form-label">Address</label>
+						<textarea onkeyup="setInputUppercase(event)" class="form-control" rows="3" id="studentAddress" name="studentAddress" required></textarea>
+						<div class="d-none invalid-feedback">
+				        	Please provide address.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<label for="studentRace" class="form-label">Race</label>
+						<select class="form-select form-select-sm" id="studentRace" name="studentRace" required>
+							<option selected disabled hidden value="">PLEASE CHOOSE</option>
+							<option value="MALAY">MALAY</option>
+							<option value="CHINESE">CHINESE</option>
+							<option value="INDIAN">INDIAN</option>
+						</select>
+						<div class="d-none invalid-feedback">
+				        	Please provide race.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="studentReligion" class="form-label">Religion</label>
+						<select class="form-select form-select-sm" id="studentReligion" name="studentReligion" required>
+							<option selected disabled hidden value="">PLEASE CHOOSE</option>
+							<option value="ISLAM">ISLAM</option>
+							<option value="BUDDHIST">BUDDHIST</option>
+							<option value="HINDU">HINDU</option>
+							<option value="CHRISTIAN">CHRISTIAN</option>
+						</select>
+						<div class="d-none invalid-feedback">
+				        	Please provide religion.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<label for="studentIdentificationNo" class="form-label">IC Number</label>
+						<input type="text" class="form-control form-control-sm" id="studentIdentificationNo" name="studentIdentificationNo" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide IC Number.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="studentGender" class="form-label">Gender</label>
+						<select class="form-select form-select-sm" id="studentGender" name="studentGender" required>
+							<option selected disabled hidden value="">PLEASE CHOOSE</option>
+							<option value="MALE">MALE</option>
+							<option value="FEMALE">FEMALE</option>
+						</select>
+						<div class="d-none invalid-feedback">
+				        	Please provide gender.
+				     	</div>
+					</div>
+				</div>
+				<div class="row g-1 pb-2">
+					<div class="col-lg-6 col-12">
+						<label for="studentBirthDate" class="form-label">Birth Date</label>
+						<input type="date" class="form-control form-control-sm" id="studentBirthDate" name="studentBirthDate" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide birth date.
+				     	</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<label for="studentAge" class="form-label">Age</label>
+						<input type="number" class="form-control form-control-sm" id="studentAge" name="studentAge" required />
+						<div class="d-none invalid-feedback">
+				        	Please provide age.
+				     	</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="list-group-item p-1 modal-footer">
+			<button onclick="onGetStudent()" type="button" class="btn btn-sm btn-warning me-1">Reset</button>
+			<button type="submit" class="btn btn-sm btn-success">Submit</button>
+		</li>
+	</ul>
+</form>
