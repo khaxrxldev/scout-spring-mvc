@@ -12,11 +12,11 @@
 		<h3>TEACHER</h3>
 		<div>
 			<span>username</span>
-			<input type="text" name="loginUsername" id="loginUsername" value="azuan@gmail.com"/>
+			<input type="text" name="loginUsername" id="loginUsername" value=""/>
 		</div>
 		<div>
 			<span>password</span>
-			<input type="text" name="loginPassword" id="loginPassword" value="password"/>
+			<input type="text" name="loginPassword" id="loginPassword" value=""/>
 		</div>
 		<button type="submit">submit</button>
 	</form>
@@ -25,11 +25,11 @@
 		<h3>EVALUATOR</h3>
 		<div>
 			<span>username</span>
-			<input type="text" name="loginUsername" id="loginUsername" value="nizar@gmail.com"/>
+			<input type="text" name="loginUsername" id="loginUsername" value=""/>
 		</div>
 		<div>
 			<span>password</span>
-			<input type="text" name="loginPassword" id="loginPassword" value="nizar123"/>
+			<input type="text" name="loginPassword" id="loginPassword" value=""/>
 		</div>
 		<button type="submit">submit</button>
 	</form>
@@ -38,11 +38,11 @@
 		<h3>STUDENT</h3>
 		<div>
 			<span>username</span>
-			<input type="text" name="loginUsername" id="loginUsername" value="m-22334455@moe-dl.edu.my"/>
+			<input type="text" name="loginUsername" id="loginUsername" value=""/>
 		</div>
 		<div>
 			<span>password</span>
-			<input type="text" name="loginPassword" id="loginPassword" value="dlp101010155678"/>
+			<input type="text" name="loginPassword" id="loginPassword" value=""/>
 		</div>
 		<button type="submit">submit</button>
 	</form>
